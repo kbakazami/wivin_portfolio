@@ -34,11 +34,11 @@ export const NavBar: React.FC = () => {
         {/* Menu déroulant - Mobile */}
         {menuOpen && (
             <div className="md:hidden mt-4 px-4 space-y-3">
-              <Link href="/" className="block hover:text-hover">Accueil</Link>
-              <Link href="/projects" className="block hover:text-hover">Projets</Link>
-              <Link href="/about" className="block hover:text-hover">À propos</Link>
-              <Link href="/skills" className="block hover:text-hover">Compétences</Link>
-              <Link href="/contact" className="block hover:text-hover">Contact</Link>
+              <Link href="/" className="block hover:text-[#FDF5AA]">Accueil</Link>
+              <Link href="/projects" className="block hover:text-[#FDF5AA]">Projets</Link>
+              <Link href="/about" className="block hover:text-[#FDF5AA]">À propos</Link>
+              <Link href="/skills" className="block hover:text-[#FDF5AA]">Compétences</Link>
+              <Link href="/contact" className="block hover:text-[#FDF5AA]">Contact</Link>
             </div>
         )}
       </nav>

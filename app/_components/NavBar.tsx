@@ -3,10 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +25,7 @@ export const NavBar: React.FC = () => {
 
   return (
       <nav
-        className={`${atTop ? 'bg-transparent' : 'bg-[#113F67]'} fixed top-0 left-0 w-full p-4 text-white transition-colors duration-300 z-50`}
+        className={`${isHome && atTop ? 'bg-transparent' : 'bg-[#113F67]'} fixed top-0 left-0 w-full p-4 text-white transition-colors duration-300 z-50`}
       >
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-lg font-bold">Wivin Struys</div>

@@ -20,12 +20,33 @@ const projects = [
         imageUrl: "https://placehold.co/600x400",
         technologies: ["Symfony", "PHP", "MySQL"],
     },
+    {
+        title: "Site vitrine",
+        description: "Présentation d\u2019entreprise développée sous Symfony.",
+        imageUrl: "https://placehold.co/600x400",
+        technologies: ["Symfony", "PHP", "MySQL"],
+    },
+    {
+        title: "Site vitrine",
+        description: "Présentation d\u2019entreprise développée sous Symfony.",
+        imageUrl: "https://placehold.co/600x400",
+        technologies: ["Symfony", "PHP", "MySQL"],
+    },
+    {
+        title: "Site vitrine",
+        description: "Présentation d\u2019entreprise développée sous Symfony.",
+        imageUrl: "https://placehold.co/600x400",
+        technologies: ["Symfony", "PHP", "MySQL"],
+    },
 ];
 
 const Projects: React.FC = () => {
     return (
         <section className="container mx-auto px-4 py-16">
             <h1 className="text-4xl md:text-6xl font-bold text-center mb-12">Mes Projets</h1>
+            <p className="text-lg md:text-xl text-center mb-8">
+                Découvrez quelques-uns de mes projets récents, réalisés avec passion et expertise.
+            </p>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {projects.map((project) => (
                     <ProjectCard key={project.title} {...project} />

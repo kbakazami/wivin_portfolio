@@ -26,7 +26,7 @@ export default function RootLayout({
       </header>
         {children}
       <footer className="bg-[#113F67] text-white py-4 text-center">
-          <p>© 2023 Mon Portfolio. Tous droits réservés.</p>
+          <p>© 2025 Struys Wivin. Tous droits réservés.</p>
       </footer>
       </body>
     </html>

@@ -9,14 +9,20 @@ export default function Home() {
             style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
         >
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-bold">Développeur Full-stack</h1>
-            <p className="mt-4 text-lg">Symfony, Node.js, React, Tailwind</p>
-            <div className="mt-8">
+            <h1 className="text-4xl text-center md:text-6xl font-bold text-[#FDF5AA]">Wivin Struys - Développeur Web</h1>
+            <p className="mt-4 text-lg text-center">Symfony, Node.js, React, Tailwind</p>
+            <div className="mt-8 gap-4 flex justify-center">
                 <Link
                 href="/projects"
                 className="bg-[#113F67] hover:bg-[#FDF5AA] hover:text-[#113F67] text-white font-semibold py-2 px-4 rounded transition duration-300"
                 >
                 Voir mes projets
+                </Link>
+                <Link
+                    href="/contact"
+                    className="bg-[#FDF5AA] hover:bg-white text-[#113F67] font-semibold py-2 px-4 rounded transition duration-300"
+                >
+                    Me contacter
                 </Link>
             </div>
           </div>

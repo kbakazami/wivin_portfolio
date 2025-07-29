@@ -42,8 +42,9 @@ const projects = [
 
 const Projects: React.FC = () => {
     return (
-        <section className="container mx-auto px-4 py-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-center mb-12">Mes Projets</h1>
+        <section className="container mx-auto px-4 pb-16 pt-32">
+            <h1 className="text-4xl md:text-6xl font-bold text-center text-gray-800">Mes Projets</h1>
+            <div className="lg:w-80 w-40 h-1 mx-auto bg-[#30475E] my-4 rounded-full"></div>
             <p className="text-lg md:text-xl text-center mb-8">
                 Découvrez quelques-uns de mes projets récents, réalisés avec passion et expertise.
             </p>

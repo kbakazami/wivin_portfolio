@@ -25,7 +25,7 @@ export default function RootLayout({
           <NavBar />
       </header>
         {children}
-      <footer className="bg-[#113F67] text-white py-4 text-center">
+      <footer className="bg-[#30475E] text-white py-4 text-center">
           <p>© 2025 Struys Wivin. Tous droits réservés.</p>
       </footer>
       </body>

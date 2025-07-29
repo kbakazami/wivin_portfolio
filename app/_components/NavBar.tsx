@@ -1,16 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 export const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setAtTop(window.scrollY === 0);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-      <nav className="bg-[#113F67] p-4 text-white">
+      <nav
+        className={`${atTop ? 'bg-transparent' : 'bg-[#113F67]'} fixed top-0 left-0 w-full p-4 text-white transition-colors duration-300 z-50`}
+      >
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-lg font-bold">Mon Portfolio</div>
 

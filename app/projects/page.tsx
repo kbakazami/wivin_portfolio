@@ -1,46 +1,12 @@
 import React from "react";
 import ProjectCard from "@/app/_components/ProjectCard";
+import {getProjects} from "@/app/_lib/getProjects";
+import {IProject} from "@/app/_types/project";
 
-const projects = [
-    {
-        title: "Site e-commerce",
-        description: "Boutique en ligne réalisée avec Next.js et Stripe pour le paiement.",
-        imageUrl: "https://placehold.co/600x400",
-        technologies: ["Next.js", "Stripe", "Tailwind"],
-    },
-    {
-        title: "Application de tâches",
-        description: "Gestionnaire de tâches avec React et une API Node.js.",
-        imageUrl: "https://placehold.co/600x400",
-        technologies: ["React", "Node.js", "MongoDB"],
-    },
-    {
-        title: "Site vitrine",
-        description: "Présentation d\u2019entreprise développée sous Symfony.",
-        imageUrl: "https://placehold.co/600x400",
-        technologies: ["Symfony", "PHP", "MySQL"],
-    },
-    {
-        title: "Site vitrine",
-        description: "Présentation d\u2019entreprise développée sous Symfony.",
-        imageUrl: "https://placehold.co/600x400",
-        technologies: ["Symfony", "PHP", "MySQL"],
-    },
-    {
-        title: "Site vitrine",
-        description: "Présentation d\u2019entreprise développée sous Symfony.",
-        imageUrl: "https://placehold.co/600x400",
-        technologies: ["Symfony", "PHP", "MySQL"],
-    },
-    {
-        title: "Site vitrine",
-        description: "Présentation d\u2019entreprise développée sous Symfony.",
-        imageUrl: "https://placehold.co/600x400",
-        technologies: ["Symfony", "PHP", "MySQL"],
-    },
-];
+const Projects: React.FC = async () =>  {
 
-const Projects: React.FC = () => {
+    const projects = await getProjects();
+
     return (
         <section className="container mx-auto px-4 pb-16 pt-32">
             <h1 className="text-4xl md:text-6xl font-bold text-center text-gray-800">Mes Projets</h1>
@@ -49,8 +15,16 @@ const Projects: React.FC = () => {
                 Découvrez quelques-uns de mes projets récents, réalisés avec passion et expertise.
             </p>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {projects.map((project) => (
-                    <ProjectCard key={project.title} {...project} />
+                {projects.map((project: IProject) => (
+                    <ProjectCard key={project.slug}
+                                 title={project.title}
+                                 summary={project.summary ?? "Pas de descirption"}
+                                 imageUrl={project.image?.url ?? "https://placehold.co/600x400"}
+                                 technologies={
+                                        project.stack.map((tech) => tech.techno)
+                                 }
+                                 href={`/projects/${project.slug}`}
+                    />
                 ))}
             </div>
         </section>

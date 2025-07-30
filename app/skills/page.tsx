@@ -1,8 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import SkillCard from "@/app/_components/SkillCard";
-
-
 
 const skills: React.FC = () => {
     return (

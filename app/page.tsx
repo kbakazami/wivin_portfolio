@@ -3,7 +3,13 @@ import Card from "@/app/_components/Card";
 import Image from "next/image";
 import React from "react";
 
-export default function Home() {
+import { getProjects } from "./_lib/getProjects";
+import {IProject} from "@/app/_types/project";
+
+export default async function Home() {
+    const projects = await getProjects();
+    const latestProjects = projects.slice(0, 3);
+
     return (
         <>
             <section
@@ -93,6 +99,9 @@ export default function Home() {
                     <Image src="/icons/css.svg" width={80} height={80} alt="CSS"/>
                     <Image src="/icons/tailwindcss.svg" width={80} height={80} alt="TailwindCSS"/>
                     <Image src="/icons/docker.svg" width={80} height={80} alt="Docker"/>
+                    <Image src="/icons/postgresql.svg" width={80} height={80} alt="Postgresql"/>
+                    <Image src="/icons/mysql.svg" width={80} height={80} alt="Mysql"/>
+                    <Image src="/icons/mongodb.svg" width={80} height={80} alt="MongoDB"/>
                 </div>
             </section>
             <section className="px-4 py-16">
@@ -100,15 +109,17 @@ export default function Home() {
                     <h2 className="text-center font-bold text-4xl md:text-6xl text-gray-800">Mes derniers projets</h2>
                     <div className="lg:w-80 w-40 h-1 mx-auto bg-[#30475E] my-4 rounded-full"></div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-                        <Card title={"Titre de la carte"}
-                              description={"lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."}
-                              imageUrl={"https://placehold.co/600x400"} linkUrl={"/projects/1"}/>
-                        <Card title={"Titre de la carte"}
-                              description={"lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."}
-                              imageUrl={"https://placehold.co/600x400"} linkUrl={"/projects/1"}/>
-                        <Card title={"Titre de la carte"}
-                              description={"lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."}
-                              imageUrl={"https://placehold.co/600x400"} linkUrl={"/projects/1"}/>
+                        {latestProjects.map((project: IProject) => (
+                            <Card
+                                key={project.slug}
+                                title={project.title}
+                                description={project.summary ?? "Pas de description"}
+                                imageUrl={project.image?.url
+                                    ? `${process.env.STRAPI_API_URL}${project.image.url}`
+                                    : "https://placehold.co/600x400"}
+                                linkUrl={`/projects/${project.slug}`}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>

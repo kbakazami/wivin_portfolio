@@ -7,7 +7,7 @@ import NavBar from "@/app/_components/NavBar";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Mon Portfolio',
+    title: 'Wivin Struys – Portfolio',
     description: 'Développeur Full-stack – PHP, Node.js, React',
     keywords: ['Portfolio', 'Développeur Full-stack', 'PHP', 'Node.js', 'React'],
 };

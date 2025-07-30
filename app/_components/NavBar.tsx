@@ -28,7 +28,11 @@ export const NavBar: React.FC = () => {
         className={`${isHome && atTop ? 'bg-transparent' : 'bg-[#30475E]'} fixed top-0 left-0 w-full p-4 text-white transition-colors duration-300 z-50`}
       >
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-lg font-bold">Wivin Struys</div>
+          <div className="text-lg font-bold">
+            <Link href="/">
+              Wivin Struys
+            </Link>
+          </div>
 
           {/* Burger Icon (mobile) */}
           <div className="md:hidden">

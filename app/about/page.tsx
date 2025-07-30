@@ -1,9 +1,16 @@
 import React from "react";
 import Link from "next/link";
+import AnimatedSection from "@/app/_components/AnimatedSection";
 
 const About: React.FC = () => {
     return (
-        <section className="container relative max-w-3xl mx-auto pb-16 pt-32">
+        <AnimatedSection
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="container relative max-w-3xl mx-auto pb-32 pt-32"
+        >
             <div className="relative z-20 p-8 text-white bg-[#30475E] rounded">
                 <h1 className="text-4xl font-bold mb-6 text-primary text-white">À propos de moi</h1>
                 <div className="lg:w-80 w-40 h-1 bg-[#7E8A97] my-4 rounded-full"></div>
@@ -52,7 +59,7 @@ const About: React.FC = () => {
                 </div>
             </div>
             <div className="lg:absolute lg:block hidden bg-[#7E8A97] w-[778px] h-[828px] top-40 left-6 rounded"></div>
-        </section>
+        </AnimatedSection>
     );
 }
 

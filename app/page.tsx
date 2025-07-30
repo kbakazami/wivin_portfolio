@@ -5,6 +5,8 @@ import React from "react";
 
 import { getProjects } from "./_lib/getProjects";
 import {IProject} from "@/app/_types/project";
+import AnimatedSection from "@/app/_components/AnimatedSection";
+import AnimatedReveal from "@/app/_components/AnimatedReveal";
 
 export default async function Home() {
     const projects = await getProjects();
@@ -18,26 +20,41 @@ export default async function Home() {
             >
                 <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
                 <div className="relative container mx-auto px-4">
-                    <h1 className="text-4xl text-center md:text-6xl font-bold text-white">Wivin Struys</h1>
-                    <div className="lg:w-80 w-40 h-1 mx-auto bg-[#7E8A97] my-4 rounded-full"></div>
-                    <p className="mt-4 text-2xl text-center">Développeur Web - Full Stack</p>
-                    <div className="mt-8 gap-4 flex justify-center">
-                        <Link
-                            href="/projects"
-                            className="bg-[#30475E] hover:bg-white hover:text-[#30475E] text-white font-semibold py-2 px-4 rounded transition duration-300"
-                        >
-                            Voir mes projets
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="bg-white hover:bg-[#7E8A97] text-[#30475E] hover:text-white font-semibold py-2 px-4 rounded transition duration-300"
-                        >
-                            Me contacter
-                        </Link>
-                    </div>
+                    <AnimatedReveal delay={0}>
+                        <h1 className="text-4xl text-center md:text-6xl font-bold text-white">Wivin Struys</h1>
+                    </AnimatedReveal>
+                    <AnimatedReveal delay={0.2}>
+                        <div className="lg:w-80 w-40 h-1 mx-auto bg-[#7E8A97] my-4 rounded-full"></div>
+                    </AnimatedReveal>
+                    <AnimatedReveal delay={0.4}>
+                        <p className="mt-4 text-2xl text-center">Développeur Web - Full Stack</p>
+                    </AnimatedReveal>
+                    <AnimatedReveal delay={0.6}>
+                        <div className="mt-8 gap-4 flex justify-center">
+                            <Link
+                                href="/projects"
+                                className="bg-[#30475E] hover:bg-white hover:text-[#30475E] text-white font-semibold py-2 px-4 rounded transition duration-300"
+                            >
+                                Voir mes projets
+                            </Link>
+                            <Link
+                                href="/contact"
+                                className="bg-white hover:bg-[#7E8A97] text-[#30475E] hover:text-white font-semibold py-2 px-4 rounded transition duration-300"
+                            >
+                                Me contacter
+                            </Link>
+                        </div>
+                    </AnimatedReveal>
                 </div>
             </section>
-            <section className="lg:pt-22 lg:pb-30 py-16 bg-[#30475E] text-white">
+            <AnimatedSection
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="lg:pt-22 lg:pb-30 py-16 bg-[#30475E] text-white"
+
+            >
                 <div className="container mx-auto px-4 flex lg:flex-row flex-col">
                     <div className="lg:relative lg:w-1/3 lg:h-96 lg:mr-8">
                         <div className="lg:absolute lg:block hidden bg-[#7E8A97] w-100 h-100 top-6 right-6 rounded"></div>
@@ -70,8 +87,15 @@ export default async function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
-            <section className="py-16 mx-auto ">
+            </AnimatedSection>
+            <AnimatedSection
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="py-16 mx-auto"
+
+            >
                 <div className="container mx-auto">
                     <h2 className="text-center font-bold text-4xl md:text-6xl text-gray-800">Ils m'ont fais confiance</h2>
                     <div className="lg:w-80 w-40 h-1 mx-auto bg-[#30475E] my-4 rounded-full"></div>
@@ -87,8 +111,15 @@ export default async function Home() {
                         </a>
                     </div>
                 </div>
-            </section>
-            <section className="bg-[#7E8A97] text-white py-12">
+            </AnimatedSection>
+            <AnimatedSection
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-[#7E8A97] text-white py-12"
+
+            >
                 <div className="container mx-auto px-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 place-items-center">
                     <Image src="/icons/javascript.svg" width={80} height={80} alt="JavaScript" />
                     <Image src="/icons/react.svg" width={80} height={80} alt="React"/>
@@ -103,26 +134,35 @@ export default async function Home() {
                     <Image src="/icons/mysql.svg" width={80} height={80} alt="Mysql"/>
                     <Image src="/icons/mongodb.svg" width={80} height={80} alt="MongoDB"/>
                 </div>
-            </section>
-            <section className="px-4 py-16">
+            </AnimatedSection>
+            <AnimatedSection
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="px-4 py-16"
+
+            >
                 <div className="container mx-auto">
                     <h2 className="text-center font-bold text-4xl md:text-6xl text-gray-800">Mes derniers projets</h2>
                     <div className="lg:w-80 w-40 h-1 mx-auto bg-[#30475E] my-4 rounded-full"></div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-                        {latestProjects.map((project: IProject) => (
-                            <Card
-                                key={project.slug}
-                                title={project.title}
-                                description={project.summary ?? "Pas de description"}
-                                imageUrl={project.image?.url
-                                    ? `${process.env.STRAPI_API_URL}${project.image.url}`
-                                    : "https://placehold.co/600x400"}
-                                linkUrl={`/projects/${project.slug}`}
-                            />
+                        {latestProjects.map((project: IProject, index: number) => (
+                            <AnimatedReveal key={index} delay={index * 0.2}>
+                                <Card
+                                    key={index}
+                                    title={project.title}
+                                    description={project.summary ?? "Pas de description"}
+                                    imageUrl={project.image?.url
+                                        ? `${process.env.STRAPI_API_URL}${project.image.url}`
+                                        : "https://placehold.co/600x400"}
+                                    linkUrl={`/projects/${project.slug}`}
+                                />
+                            </AnimatedReveal>
                         ))}
                     </div>
                 </div>
-            </section>
+            </AnimatedSection>
         </>
     );
 }

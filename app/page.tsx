@@ -103,10 +103,10 @@ export default async function Home() {
                         <a href="https://ikattan.com" target="_blank" className="flex justify-center items-center w-1/3 lg:w-1/4 px-4 pt-4">
                             <Image src="/images/logo-ikattan.png" width={134} height={54} alt="Ikattan"/>
                         </a>
-                        <a href="https://www.magentizy.io" className="flex justify-center items-center w-1/3 lg:w-1/4 px-4 pt-4">
+                        <a href="https://www.magentizy.io" target="_blank" className="flex justify-center items-center w-1/3 lg:w-1/4 px-4 pt-4">
                             <Image src="/images/logo-magentizy.svg" width={200} height={39} alt="Ikattan"/>
                         </a>
-                        <a href="https://boutique.visionrp.fr" className="flex justify-center items-center w-1/3 lg:w-1/4 px-4 pt-4">
+                        <a href="https://boutique.visionrp.fr" target="_blank" className="flex justify-center items-center w-1/3 lg:w-1/4 px-4 pt-4">
                             <Image src="/images/logo-vision.png" width={80} height={80} alt="Vision"/>
                         </a>
                     </div>

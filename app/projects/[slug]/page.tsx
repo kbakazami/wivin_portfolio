@@ -42,6 +42,17 @@ export default async function ProjectDetailPage({ params }: Props) {
           </span>
                 ))}
             </div>
+
+            <div className="mt-6 flex justify-center">
+                <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#30475E] text-white px-4 py-2 rounded hover:bg-[#222831] transition-colors"
+                >
+                    Voir le code sur GitHub
+                </a>
+            </div>
         </section>
     );
 }

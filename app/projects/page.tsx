@@ -7,6 +7,7 @@ import AnimatedReveal from "@/app/_components/AnimatedReveal";
 const Projects: React.FC = async () =>  {
 
     const projects = await getProjects();
+    console.log("Projects fetched:", projects);
 
     return (
         <section className="container mx-auto px-4 pb-16 pt-32 min-h-screen">
